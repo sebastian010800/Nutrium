@@ -28,3 +28,7 @@ Route::get('/IPS/Registrar', [App\Http\Controllers\IPSController::class,'create'
 Route::get('/ADT/Lista',[App\Http\Controllers\ADTController::class,'index'])->name('ADTregistrados');
 Route::get('/ADT/Registrar',[App\Http\Controllers\ADTController::class,'create'])->name('NuevoADT');
 
+/*Rutas Consultas*/
+
+Route::get('Consultas/Usuarios',[App\Http\Controllers\UserController::class,'index'])->name('User');
+ 
