@@ -20,3 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+/*Rutas IPS*/
+Route::get('/IPS/Lista', [App\Http\Controllers\IPSController::class,'index'])->name('IPSregistradas');
+Route::get('/IPS/Registrar', [App\Http\Controllers\IPSController::class,'create'])->name('NuevaIPS');
+
+/*Rutas Accidentes de Trabajo*/
+Route::get('/ADT/Lista',[App\Http\Controllers\ADTController::class,'index'])->name('ADTregistrados');
+Route::get('/ADT/Registrar',[App\Http\Controllers\ADTController::class,'create'])->name('NuevoADT');
+
