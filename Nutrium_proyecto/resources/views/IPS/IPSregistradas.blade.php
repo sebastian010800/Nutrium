@@ -11,9 +11,17 @@
                 <th>Correo electrónico</th>
             </tr>
         </thead>
-        <tbody id="epsData">
-            <!-- Los datos ingresados se mostrarán aquí -->
+        <tbody id="ipsData">
+            @foreach($ips as $ipsItem)
+            <tr>
+                <td>{{ $ipsItem->nombre_ips }}</td>
+                <td>{{ $ipsItem->telefono_ips }}</td>
+                <td>{{ $ipsItem->direccion_ips }}</td>
+                <td>{{ $ipsItem->correo_electronico_ips }}</td>
+            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>
+
 @endsection

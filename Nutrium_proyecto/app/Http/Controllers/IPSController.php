@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Ips;
 
 class IPSController extends Controller
 {
@@ -14,7 +15,8 @@ class IPSController extends Controller
     public function index()
     {
         //
-        return view('IPS/IPSregistradas');
+        $ips = Ips::all(); // Obtener todas las IPS desde la base de datos
+    return view('IPS.IPSregistradas', compact('ips'));
     }
 
     /**
@@ -24,19 +26,27 @@ class IPSController extends Controller
      */
     public function create()
     {
-        //
-        return view('IPS/NuevaIPS');
+        return view('IPS.NuevaIPS'); // Suponiendo que 'IPS/NuevaIPS' es la vista que quieres mostrar
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        // Validación de datos (puedes agregar reglas de validación aquí)
+        $request->validate([
+            'nombreIPS' => 'required|string|max:255',
+            'telefonoIPS' => 'nullable|string|max:255',
+            'direccionIPS' => 'nullable|string|max:255',
+            'correoIPS' => 'nullable|email|unique:ips,correo_electronico_ips',
+        ]);
+
+        $ips = new ips();
+        $ips->nombre_ips = $request->input('nombreIPS');
+        $ips->telefono_ips = $request->input('telefonoIPS');
+        $ips->direccion_ips = $request->input('direccionIPS');
+        $ips->correo_electronico_ips = $request->input('correoIPS');
+        $ips->save();
+        // Redirige a una página de éxito o haz lo que desees después de guardar la IPS
+        return view('/home');
     }
 
     /**

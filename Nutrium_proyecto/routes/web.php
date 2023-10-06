@@ -23,6 +23,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 /*Rutas IPS*/
 Route::get('/IPS/Lista', [App\Http\Controllers\IPSController::class,'index'])->name('IPSregistradas');
 Route::get('/IPS/Registrar', [App\Http\Controllers\IPSController::class,'create'])->name('NuevaIPS');
+Route::post('/IPS/Registrar.store', [App\Http\Controllers\IPSController::class,'store'])->name('ips.store');
 
 /*Rutas Accidentes de Trabajo*/
 Route::get('/ADT/Lista',[App\Http\Controllers\ADTController::class,'index'])->name('ADTregistrados');
