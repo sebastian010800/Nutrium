@@ -1,48 +1,30 @@
 @extends('layouts.app')
 @section('content')
-<h2 class="mt-5">Accidentes de Trabajo Registrados</h2>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Nombre del Trabajador</th>
-            <th>Fecha del Accidente</th>
-            <th>Tipo de Accidente</th>
-            <th>Descripción del Accidente</th>
-        </tr>
-    </thead>
-    <tbody id="accidentesTable">
-        <!-- Los datos de los accidentes se mostrarán aquí -->
-    </tbody>
-</table>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const accidentesTable = document.getElementById("accidentesTable");
-        const epsForm = document.getElementById("epsForm");
-
-        epsForm.addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            // Obtener los valores ingresados por el usuario
-            const nombreTrabajador = document.getElementById("nombreTrabajador").value;
-            const fecha = document.getElementById("fecha").value;
-            const tipoAccidente = document.getElementById("tipoAccidente").value;
-            const descripcion = document.getElementById("descripcion").value;
-
-            // Crear una nueva fila en la tabla
-            const newRow = document.createElement("tr");
-            newRow.innerHTML = `
-                <td>${nombreTrabajador}</td>
-                <td>${fecha}</td>
-                <td>${tipoAccidente}</td>
-                <td>${descripcion}</td>
-            `;
-
-            // Agregar la nueva fila a la tabla
-            accidentesTable.appendChild(newRow);
-
-            // Limpiar el formulario después de enviar los datos
-            epsForm.reset();
-        });
-    });
+<div class="container mt-5">
+    <h1>Listado de Accidentes de Trabajo</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fecha del Accidente</th>
+                <th>Hora del Accidente</th>
+                <th>Descripción del Accidente</th>
+                <th>Calificación del Accidente</th>
+                <th>Localidad</th>
+                <th>Usuario</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach ($adts as $adt)
+            <tr>
+                <td>{{ $adt->fecha_accidente }}</td>
+                <td>{{ $adt->hora_accidente }}</td>
+                <td>{{ $adt->descripcion_accidente }}</td>
+                <td>{{ $adt->calificacion_accidente }}</td>
+                <td>{{ $adt->nombre_localidad }}</td>
+                <td>{{ $adt->nombre_usuario }}</td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+</div>
 @endsection

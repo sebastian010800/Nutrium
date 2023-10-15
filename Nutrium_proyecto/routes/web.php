@@ -28,8 +28,9 @@ Route::post('/IPS/Registrar.store', [App\Http\Controllers\IPSController::class,'
 /*Rutas Accidentes de Trabajo*/
 Route::get('/ADT/Lista',[App\Http\Controllers\ADTController::class,'index'])->name('ADTregistrados');
 Route::get('/ADT/Registrar',[App\Http\Controllers\ADTController::class,'create'])->name('NuevoADT');
+Route::post('/ADT/Registrar.store', [App\Http\Controllers\ADTController::class,'store'])->name('adt.store');
 
 /*Rutas Consultas*/
 
 Route::get('Consultas/Usuarios',[App\Http\Controllers\UserController::class,'index'])->name('User');
- 
+Route::get('Consultas/Localidad',[App\Http\Controllers\LocalidadController::class,'index'])->name('Localidad');

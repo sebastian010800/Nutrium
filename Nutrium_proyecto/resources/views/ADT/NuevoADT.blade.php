@@ -1,31 +1,36 @@
 @extends('layouts.app')
 @section('content')
 <div class="container mt-5">
-        <h1 class="mb-4">Registro de Accidente de Trabajo</h1>
-        <form>
-            <div class="mb-3">
-                <label for="nombreTrabajador" class="form-label">Nombre del Trabajador</label>
-                <input type="text" class="form-control" id="nombreTrabajador" name="nombreTrabajador" required>
-            </div>
-            <div class="mb-3">
-                <label for="fecha" class="form-label">Fecha del Accidente</label>
-                <input type="date" class="form-control" id="fecha" name="fecha" required>
-            </div>
-            <div class="mb-3">
-                <label for="tipoAccidente" class="form-label">Tipo de Accidente</label>
-                <select class="form-select" id="tipoAccidente" name="tipoAccidente" required>
-                    <option value="">Seleccionar...</option>
-                    <option value="Caída">Caída</option>
-                    <option value="Lesión">Lesión</option>
-                    <option value="Quemadura">Quemadura</option>
-                    <option value="Otro">Otro</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="descripcion" class="form-label">Descripción del Accidente</label>
-                <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Registrar Accidente</button>
-        </form>
-    </div>
+    <h1>Accidentes de Trabajo</h1>
+    <form method="POST" action="{{ route('adt.store')}}">
+        @csrf
+        <div class="form-group">
+            <label for="cedula_trabajador">Cédula del Trabajador:</label>
+            <input type="text" class="form-control" id="cedula_trabajador" name="cedula_trabajador">
+        </div>
+        <div class="form-group">
+            <label for="fecha_hora_accidente">Fecha y Hora del Accidente:</label>
+            <input type="datetime-local" class="form-control" id="fecha_hora_accidente" name="fecha_hora_accidente">
+        </div>
+        <div class="form-group">
+            <label for="descripcion_accidente">Descripción del Accidente:</label>
+            <textarea class="form-control" id="descripcion_accidente" name="descripcion_accidente"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="calificacion_accidente">Calificación del Accidente:</label>
+            <input type="number" class="form-control" id="calificacion_accidente" name="calificacion_accidente">
+        </div>
+        <div class="form-group">
+            <label for="id_localidad">Localidad:</label>
+            <select class="form-control" id="id_localidad" name="id_localidad">
+                @foreach ($localidades as $localidad)
+                    <option value="{{ $localidad->id_localidad }}">{{ $localidad->nombre_localidad }}</option>
+                @endforeach
+            </select>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Guardar Accidente</button>
+    </form>
+</div>
+
 @endsection

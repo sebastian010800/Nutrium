@@ -25,6 +25,7 @@
                     <!-- Botones adicionales -->
                     <p><a href="#" class="link-underline-success">Planimetria de la empresa</a></p>
                     <p><a href="{{ route('User') }}" class="link-underline-success">Datos basicos de los empleados</a></p>
+                    <p><a href="{{  route('Localidad') }}" class="link-underline-success">Consulta localidades</a></p>
                     <p><a href="#" class="link-underline-success">Datos de afiliacion a EPS</a></p>
                     <p><a href="#" class="link-underline-success">Datos de contratación</a></p>
                     <p><a href="#" class="link-underline-success">Formato afiliacion EPS</a></p>
