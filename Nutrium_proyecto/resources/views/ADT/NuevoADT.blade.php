@@ -2,7 +2,7 @@
 @section('content')
 <div class="container mt-5">
     <h1>Accidentes de Trabajo</h1>
-    <form method="POST" action="{{ route('adt.store')}}">
+    <form method="POST" action="{{  route('adt.store')  }}">
         @csrf
         <div class="form-group">
             <label for="cedula_trabajador">Cédula del Trabajador:</label>

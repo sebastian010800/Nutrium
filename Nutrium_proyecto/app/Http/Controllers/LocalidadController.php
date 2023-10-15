@@ -13,8 +13,8 @@ class LocalidadController extends Controller
      */
     public function index()
     {
-        $localidades = Localidad::all(); // Obtener todas las localidades desde la base de datos
-        return view('Consultas/Localidad', compact('localidades'));
+        $locaciones = Localidad::all(); // Obtener todas las localidades desde la base de datos
+        return view('Consultas/Localidad', compact('locaciones'));
     }
 
     /**
@@ -25,6 +25,7 @@ class LocalidadController extends Controller
     public function create()
     {
         //
+        return view();
     }
 
     /**
@@ -36,6 +37,22 @@ class LocalidadController extends Controller
     public function store(Request $request)
     {
         //
+        // Validación de los datos del formulario
+        $this->validate($request, [
+            'nombre_localidad' => 'required|max:255',
+            'descripcion_localidad' => 'required',
+        ]);
+
+        // Crear una nueva instancia de Locacion
+        $locacion = new Localidad;
+        $locacion->nombre_localidad = $request->nombre_localidad;
+        $locacion->descripcion_localidad = $request->descripcion_localidad;
+
+        // Guardar la nueva locación en la base de datos
+        $locacion->save();
+
+        // Redireccionar a la vista de locaciones con un mensaje de éxito
+        return view('/home');
     }
 
     /**
