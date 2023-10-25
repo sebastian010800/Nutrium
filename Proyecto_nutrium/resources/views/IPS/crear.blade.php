@@ -3,7 +3,7 @@
 
 <div class="container">
     <h2>Registrar una nueva IPS</h2>
-    <form action="{{ route('Guardar.store') }}" method="post">
+    <form action="{{ route('Guardar_ips.store') }}" method="post">
         @csrf <!-- Agrega el token CSRF para protección -->
         <div class="form-group">
             <label for="nombre_ips">Nombre de la IPS</label>

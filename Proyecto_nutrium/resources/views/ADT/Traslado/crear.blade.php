@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h2>Registro de Traslado</h2>
-    <form action="{{ route('Guardar.store')}}" method="post">
+    <form action="{{ route('Guardar_tr.store')}}" method="post">
         @csrf <!-- Agrega el token CSRF para protección -->
 
         <div class="form-group">

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h2>Ingresar Datos de Nueva Localidad</h2>
-    <form action="{{ route('Guardar.store') }}" method="post">
+    <form action="{{ route('Guardar_lc.store') }}" method="post">
         @csrf <!-- Agrega el token CSRF para protección -->
         <div class="form-group">
             <label for="nombre_localidad">Nombre de la Localidad</label>

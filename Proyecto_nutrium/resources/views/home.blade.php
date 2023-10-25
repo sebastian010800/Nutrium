@@ -61,7 +61,7 @@
                     </li>
                     <ul id="otrasOpcionesMenu" class="list-group collapse">
                         <li class="list-group-item">
-                            <a href="{{ route('Valoraciones') }}">Valoracion</a>
+                            <a href="{{ route('Valoraciones')}}">Valoracion</a>
                         </li>
                         <li class="list-group-item">
                             <a href="{{ route('Traslados') }}">Datos del traslado</a>

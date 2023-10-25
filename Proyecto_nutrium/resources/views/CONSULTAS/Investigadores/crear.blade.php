@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h2>Registro de Investigadores en Accidentes</h2>
-    <form action="{{ route('Guardar.store') }}" method="post">
+    <form action="{{ route('Guardar_inv.store') }}" method="post">
         @csrf <!-- Agrega el token CSRF para protección -->
         
         <div class="form-group">
