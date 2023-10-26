@@ -25,9 +25,5 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function usuarios()
-    {
-        $users = User::all();
-        return view('CONSULTAS/Usuario/Usuarios',compact('users',$users));
-    }
+    
 }

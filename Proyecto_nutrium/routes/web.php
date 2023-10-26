@@ -25,7 +25,8 @@ Route::get('/IPS/IPS_registradas',[App\Http\Controllers\ipsController::class, 'i
 Route::get('/IPS/Nueva_IPS',[App\Http\Controllers\ipsController::class, 'create'])->name('Nueva_IPS');
 Route::post('/IPS/Nueva_IPS',[App\Http\Controllers\ipsController::class, 'store'])->name('Guardar_ips.store');
 
-Route::get('/CONSULTAS', [App\Http\Controllers\HomeController::class, 'usuarios'])->name('Usuarios');
+Route::get('/CONSULTAS', [App\Http\Controllers\datosController::class, 'index'])->name('Usuarios');
+Route::put('/datos/{dato}', [App\Http\Controllers\datosController::class, 'update'])->name('datos.update');
 
 Route::get('/CONSULTAS/Localidad',[App\Http\Controllers\localidadController::class, 'index'])->name('Localidades');
 Route::get('/CONSULTAS/Nueva_localidad',[App\Http\Controllers\localidadController::class, 'create'])->name('Nueva_localidad');
