@@ -1,39 +1,59 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<style>
+.centered-background {
+    background-image: url('{{ asset('images/Fondo_empleados.png') }}');
+    background-size: 100% 100%;
+    background-position: center center;
+    background-attachment: fixed;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0.5; /* Reduce la visibilidad al 60% (puedes ajustar este valor) */
+}
+
+
+</style>
+
+<div class="centered-background"></div>
+
+<div class="container" style="padding-top: 50px;">
     <div class="row justify-content-center">
         <div class="col-md-4">
-            <button class="btn btn-primary btn-block" data-toggle="collapse" data-target="#ipsMenu">
+            <button class="btn btn-primary custom-button" data-toggle="collapse" data-target="#ipsMenu">
                 IPS
             </button>
             <div id="ipsMenu" class="collapse">
                 <ul class="list-group">
                     <li class="list-group-item">
-                      <a href="{{ route('IPS_registradas') }}">Listado de las IPS registradas</a>
+                        <a href="{{ route('IPS_registradas') }}">Listado de las IPS registradas</a>
                     </li>
                     <li class="list-group-item">
-                      <a href="{{ route('Nueva_IPS') }}">Registrar nueva IPS</a>
+                        <a href="{{ route('Nueva_IPS') }}">Registrar nueva IPS</a>
                     </li>
                 </ul>
             </div>
         </div>
 
         <div class="col-md-4">
-            <button class="btn btn-success btn-block" data-toggle="collapse" data-target="#consultasMenu">
+            <button class="btn btn-success custom-button btn-block" data-toggle="collapse" data-target="#consultasMenu">
                 Consultas
             </button>
             <div id="consultasMenu" class="collapse">
                 <ul class="list-group">
                     <li class="list-group-item">
-                      Planimetria de la empresa
+                        Planimetria de la empresa
                     </li>
                     <li class="list-group-item">
-                      <a href="{{ route('Usuarios') }}">Datos basicos de los empleados</a>
+                        <a href="{{ route('Usuarios') }}">Datos básicos de los empleados</a>
                     </li>
-                    <li class="list-group-item">Datos de afiliacion a EPS</li>
-                    <li class="list-group-item">Datos de contratacion de los empleados</li>
-                    <li class="list-group-item">Formatos de afiliacion a la ARL</li>
+                    <li class="list-group-item">Datos de afiliación a EPS</li>
+                    <li class="list-group-item">Datos de contratación de los empleados</li>
+                    <li class="list-group-item">Formatos de afiliación a la ARL</li>
                     <li class="list-group-item">
                         <a href="{{ route('Investigadores')}}">Consultar investigadores</a>
                     </li>
@@ -45,7 +65,7 @@
         </div>
 
         <div class="col-md-4">
-            <button class="btn btn-danger btn-block" data-toggle="collapse" data-target="#accidentesMenu">
+            <button class="btn btn-danger btn-block custom-button" data-toggle="collapse" data-target="#accidentesMenu">
                 Accidentes de Trabajo
             </button>
             <div id="accidentesMenu" class="collapse">
@@ -61,7 +81,7 @@
                     </li>
                     <ul id="otrasOpcionesMenu" class="list-group collapse">
                         <li class="list-group-item">
-                            <a href="{{ route('Valoraciones')}}">Valoracion</a>
+                            <a href="{{ route('Valoraciones')}}">Valoración</a>
                         </li>
                         <li class="list-group-item">
                             <a href="{{ route('Traslados') }}">Datos del traslado</a>
@@ -78,5 +98,4 @@
         </div>
     </div>
 </div>
-
 @endsection
