@@ -8,6 +8,7 @@ use App\Models\localidad;
 use App\Models\User;
 use App\Models\investigador;
 use App\Models\ips;
+use App\Models\datos;
 
 
 
@@ -72,7 +73,12 @@ class adtController extends Controller
 
         return view('home');
     }
-
+    public function reporte()
+    {
+        $adts=adt::with('user')->get();
+        $users=User::all();
+        return view('ADT/Reporte',compact('adts',$adts,'users',$users));
+    }
     /**
      * Display the specified resource.
      *

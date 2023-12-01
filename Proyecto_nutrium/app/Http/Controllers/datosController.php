@@ -79,6 +79,7 @@ class datosController extends Controller
             'genero' => 'required|in:Masculino,Femenino', // Asegúrate de que los valores sean válidos
             'celular' => 'required',
             'direccion' => 'required',
+            'eps' => 'required',
             'contacto_emergencia_nombre' => 'required',
             'contacto_emergencia_telefono' => 'required',
             'peso' => 'required',
@@ -93,6 +94,7 @@ class datosController extends Controller
             'genero' => $request->input('genero'),
             'celular' => $request->input('celular'),
             'direccion' => $request->input('direccion'),
+            'eps'=> $request->input('eps'),
             'contacto_emergencia_nombre' => $request->input('contacto_emergencia_nombre'),
             'contacto_emergencia_telefono' => $request->input('contacto_emergencia_telefono'),
             'peso' => $request->input('peso'),

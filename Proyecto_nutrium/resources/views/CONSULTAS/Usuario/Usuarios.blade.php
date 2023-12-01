@@ -44,6 +44,7 @@
                 <p>Género: {{ $dato->genero }}</p>
                 <p>Celular: {{ $dato->celular }}</p>
                 <p>Dirección: {{ $dato->direccion }}</p>
+                <p>EPS {{ $dato->eps }}</p>
                 <p>Nombre de Contacto de Emergencia: {{ $dato->contacto_emergencia_nombre }}</p>
                 <p>Celular de Contacto de Emergencia: {{ $dato->contacto_emergencia_telefono }}</p>
                 <p>Peso: {{ $dato->peso }} KG</p>
@@ -80,6 +81,7 @@
                     <div class="form-group">
                         <label for="genero">Género:</label>
                         <select name="genero" id="genero" class="form-control" required>
+                            <option >-</option>
                             <option value="Masculino" {{ $dato->genero === 'Masculino' ? 'selected' : '' }}>Masculino</option>
                             <option value="Femenino" {{ $dato->genero === 'Femenino' ? 'selected' : '' }}>Femenino</option>
                         </select>
@@ -95,6 +97,16 @@
                         <input type="text" name="direccion" id="direccion" class="form-control" required>
                     </div>
 
+                    <div class="form-group">
+                        <label for="eps">eps:</label>
+                        <select name="eps" id="eps" class="form-control" required>
+                            <option >-</option>
+                            <option value="Sura" {{ $dato->eps === 'Sura' ? 'selected' : '' }}>Sura</option>
+                            <option value="Nueva_Eps" {{ $dato->eps === 'Nueva_Eps' ? 'selected' : '' }}>Nueva Eps</option>
+                            <option value="Coomeva" {{ $dato->eps === 'Coomeva' ? 'selected' : '' }}>Coomeva</option>
+                        </select>
+                    </div>
+                    
                     <div class="form-group">
                         <label for="contacto_emergencia_nombre">Nombre de Contacto de Emergencia:</label>
                         <input type="text" name="contacto_emergencia_nombre" id="contacto_emergencia_nombre" class="form-control" required>

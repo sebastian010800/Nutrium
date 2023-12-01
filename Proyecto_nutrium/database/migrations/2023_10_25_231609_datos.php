@@ -21,6 +21,7 @@ class Datos extends Migration
             $table->string('genero', 10)->nullable();
             $table->string('celular', 15)->nullable();
             $table->string('direccion', 255)->nullable();
+            $table->string('eps',55)->nullable();
             $table->string('contacto_emergencia_nombre', 100)->nullable();
             $table->string('contacto_emergencia_telefono', 15)->nullable();
             $table->decimal('peso', 5, 2)->nullable();

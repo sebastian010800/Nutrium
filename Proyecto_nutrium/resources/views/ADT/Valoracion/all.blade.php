@@ -18,7 +18,7 @@
                     <td>{{ $valoracion->valoracion_primaria }}</td>
                     <td>{{ $valoracion->valoracion_secundaria }}</td>
                     <td>{{ $valoracion->investigador->nombre_investigador }}</td>
-                    <td>{{ $valoracion->adt->fecha_accidente }}</td>
+                    <td>{{ $valoracion->adt->user->name}} {{ $valoracion->adt->fecha_accidente }}</td>
                 </tr>
             @endforeach
         </tbody>

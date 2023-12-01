@@ -47,3 +47,6 @@ Route::post('/Nueva_valoracion',[App\Http\Controllers\valoracionController::clas
 Route::get('/ADT/Traslados',[App\Http\Controllers\trasladoController::class, 'index'])->name('Traslados');
 Route::get('/ADT/Nuevo_traslado',[App\Http\Controllers\trasladoController::class, 'create'])->name('Nuevo_traslado');
 Route::post('/ADT/Nuevo_traslado',[App\Http\Controllers\trasladoController::class, 'store'])->name('Guardar_tr.store');
+
+Route::get('/ADT/Reporte_final',[App\Http\Controllers\adtController::class, 'reporte'])->name('Reporte_final');
+Route::get('formato_afiliacion_arl', [App\Http\Controllers\PDFController::class, 'index'])->name('formato_afiliacion');
