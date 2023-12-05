@@ -98,7 +98,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="eps">eps:</label>
+                        <label for="eps">eps: </label>
                         <select name="eps" id="eps" class="form-control" required>
                             <option >-</option>
                             <option value="Sura" {{ $dato->eps === 'Sura' ? 'selected' : '' }}>Sura</option>

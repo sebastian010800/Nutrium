@@ -61,3 +61,7 @@ Route::get('/hojas_de_vida', function(){
     return view('CONSULTAS/hojas_de_vida');
 })->name('hojas_de_vida');
 
+Route::get('/consulta_nivel_accidente',function(){
+    return view('CONSULTAS/Consulta');
+})->name('consulta');
+

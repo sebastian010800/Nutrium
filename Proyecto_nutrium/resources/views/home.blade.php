@@ -98,7 +98,9 @@
                         <li class="list-group-item">
                             <a href="{{ route('Reporte_final')}}">Reporte final</a>
                         </li>
-                        <li class="list-group-item">Dictamen de pérdida de capacidad laboral del trabajador</li>
+                        <li class="list-group-item">
+                            <a href="{{ route('consulta')}}">Dictamen de pérdida de capacidad laboral del trabajador</a>
+                        </li>
                         <li class="list-group-item">Copia de la prestación económica</li>
                     </ul>
                 </ul>
