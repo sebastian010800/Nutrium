@@ -49,4 +49,15 @@ Route::get('/ADT/Nuevo_traslado',[App\Http\Controllers\trasladoController::class
 Route::post('/ADT/Nuevo_traslado',[App\Http\Controllers\trasladoController::class, 'store'])->name('Guardar_tr.store');
 
 Route::get('/ADT/Reporte_final',[App\Http\Controllers\adtController::class, 'reporte'])->name('Reporte_final');
-Route::get('formato_afiliacion_arl', [App\Http\Controllers\PDFController::class, 'index'])->name('formato_afiliacion');
+Route::get('/informe_final', [App\Http\Controllers\PDFController::class, 'informe'])->name('informe_final');
+
+Route::get('/formato_afiliacion_arl', [App\Http\Controllers\PDFController::class, 'index'])->name('formato_afiliacion');
+Route::get('descargar', [App\Http\Controllers\PDFController::class, 'pdf'])->name('descarga_formato');
+
+Route::get('/ADT/causas',[App\Http\Controllers\adtController::class, 'causas'])->name('causas');
+//Route::put('/causas/{causa}', [App\Http\Controllers\ADTController::class, 'causas_update'])->name('causas.update');
+
+Route::get('/hojas_de_vida', function(){
+    return view('CONSULTAS/hojas_de_vida');
+})->name('hojas_de_vida');
+

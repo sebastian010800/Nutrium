@@ -46,16 +46,16 @@
             <div id="consultasMenu" class="collapse">
                 <ul class="list-group">
                     <li class="list-group-item">
-                        Planimetria de la empresa
+                        <a href="{{ route('hojas_de_vida') }}">Hojas de vida de los equipos</a>
                     </li>
                     <li class="list-group-item">
                         <a href="{{ route('Usuarios') }}">Datos básicos de los empleados</a>
                     </li>
                     <li class="list-group-item">Datos de afiliación a EPS</li>
                     <li class="list-group-item">Datos de contratación de los empleados</li>
+                    
                     <li class="list-group-item">
-                    <a href="{{ route('formato_afiliacion') }}" download>Formatos de afiliación a la ARL</a>
-
+                        <a href="{{ route('formato_afiliacion') }}">Estado de afiliacion</a>
                     </li>
                     <li class="list-group-item">
                         <a href="{{ route('Investigadores')}}">Consultar investigadores</a>
@@ -92,8 +92,9 @@
                             <a href="{{ route('Traslados') }}">Datos del traslado</a>
                         </li>
                         <li class="list-group-item">Evidencias del accidente</li>
-                        <li class="list-group-item">Causas básicas</li>
-                        <li class="list-group-item">Causas inmediatas</li>
+                        <li class="list-group-item">
+                            <a href="{{ route('causas')}}">Causas del accidente</a>
+                        </li>
                         <li class="list-group-item">
                             <a href="{{ route('Reporte_final')}}">Reporte final</a>
                         </li>

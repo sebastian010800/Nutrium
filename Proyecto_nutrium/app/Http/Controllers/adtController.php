@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\investigador;
 use App\Models\ips;
 use App\Models\datos;
+use App\Models\causas;
 
 
 
@@ -70,7 +71,6 @@ class adtController extends Controller
     
         // Guardar el nuevo accidente en la base de datos
         $adt->save();
-
         return view('home');
     }
     public function reporte()
@@ -79,12 +79,28 @@ class adtController extends Controller
         $users=User::all();
         return view('ADT/Reporte',compact('adts',$adts,'users',$users));
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function causas(){
+        $causas=causas::with('adt')->get();
+        return view('ADT/Causas/adts',compact('causas',$causas));
+    }
+    
+    public function causas_update(Request $request, causas $causa)
+    {
+        // Validar los datos del formulario
+        $request->validate([
+            'Causas_basicas' => 'required|string',
+            'Causas_inmediatas' => 'required|string',
+        ]);
+
+        // Actualizar los datos del registro
+        $causa->update([
+            'Causas_basicas' => $request->input('Causas_basicas'),
+            'Causas_inmediatas' => $request->input('Causas_inmediatas'),
+        ]);
+
+        // Redireccionar o realizar otras acciones después de la actualización
+        return view('home')->with('success', 'Datos actualizados exitosamente');
+    }
     public function show($id)
     {
     }

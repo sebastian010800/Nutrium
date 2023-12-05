@@ -3,7 +3,7 @@
 @section('content')
 @php
 $results = DB::select("
-        SELECT users.name as nombre, datos.eps
+        SELECT users.name as nombre, datos.eps, users.id
         FROM adt
         JOIN users ON adt.user_id = users.id
         LEFT JOIN datos ON users.id = datos.user_id
@@ -25,7 +25,7 @@ $results = DB::select("
                     <td>{{ $result->nombre }}</td>
                     <td>{{ $result->eps ?? 'N/A' }}</td>
                     <td>
-                        <a href="#" class="btn btn-success">Descargar</a>
+                        <a href="{{ route('informe_final') }}" class="btn btn-success">Ver Informe</a>
                     </td>
                 </tr>
             @endforeach

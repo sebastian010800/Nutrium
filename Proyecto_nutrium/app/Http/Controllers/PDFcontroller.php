@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\user;
 class PDFcontroller extends Controller
 {
     /**
@@ -11,7 +11,12 @@ class PDFcontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(){
+        $users=user::with('datos')->get();
+        return view('CONSULTAS/Usuario/afiliacion',compact('users',$users));
+    }
+
+    public function pdf()
     {
         // Lógica para determinar el archivo PDF correspondiente a la opción seleccionada.
         $nombrePdf = 'FORMATO_AFILIACIÓN_ARL.pdf';
@@ -28,7 +33,23 @@ class PDFcontroller extends Controller
             return redirect()->back()->with('error', 'El PDF no está disponible.');
         }
     }
+    public function informe()
+    {
+        // Lógica para determinar el archivo PDF correspondiente a la opción seleccionada.
+        $nombrePdf = 'Informe_de_ADT_Sebastian_03_12_2023.pdf';
+        $rutaPdf = public_path("PDF/{$nombrePdf}");
 
+        // Verifica si el archivo PDF existe.
+        if (file_exists($rutaPdf)) {
+            // Retorna el archivo PDF en la respuesta.
+            return response()->download($rutaPdf, $nombrePdf, [
+                'Content-Type' => 'application/pdf',
+            ]);
+        } else {
+            // Si el archivo no existe, puedes redirigir o mostrar un mensaje de error.
+            return redirect()->back()->with('error', 'El PDF no está disponible.');
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -38,7 +59,6 @@ class PDFcontroller extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *

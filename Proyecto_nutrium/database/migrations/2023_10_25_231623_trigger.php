@@ -23,7 +23,17 @@ class Trigger extends Migration
                 VALUES (NEW.id);
             END
         ');
+        DB::unprepared('
+            CREATE TRIGGER crear_registro_causas
+            AFTER INSERT ON adt
+            FOR EACH ROW
+            BEGIN
+                INSERT INTO causas (Causas_basicas, Causas_inmediatas, adt_id)
+                VALUES ("ValorPorDefecto", "ValorPorDefecto", NEW.id);
+            END
+        ');
     }
+
 
     /**
      * Reverse the migrations.
@@ -34,5 +44,6 @@ class Trigger extends Migration
     {
         //
         DB::unprepared('DROP TRIGGER IF EXISTS crear_registro_datos');
+        DB::unprepared('DROP TRIGGER IF EXISTS crear_registro_causas');
     }
 }
