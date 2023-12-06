@@ -83,7 +83,6 @@ class adtController extends Controller
         $causas=causas::with('adt')->get();
         return view('ADT/Causas/adts',compact('causas',$causas));
     }
-    
     public function causas_update(Request $request, causas $causa)
     {
         // Validar los datos del formulario

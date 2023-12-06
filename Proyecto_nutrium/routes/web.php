@@ -55,7 +55,7 @@ Route::get('/formato_afiliacion_arl', [App\Http\Controllers\PDFController::class
 Route::get('descargar', [App\Http\Controllers\PDFController::class, 'pdf'])->name('descarga_formato');
 
 Route::get('/ADT/causas',[App\Http\Controllers\adtController::class, 'causas'])->name('causas');
-//Route::put('/causas/{causa}', [App\Http\Controllers\ADTController::class, 'causas_update'])->name('causas.update');
+Route::put('/causas/{causa}', [App\Http\Controllers\ADTController::class, 'causas_update'])->name('causas.update');
 
 Route::get('/hojas_de_vida', function(){
     return view('CONSULTAS/hojas_de_vida');
@@ -65,3 +65,4 @@ Route::get('/consulta_nivel_accidente',function(){
     return view('CONSULTAS/Consulta');
 })->name('consulta');
 
+Route::get('/dictamen', [App\Http\Controllers\PDFController::class, 'dictamen'])->name('dictamen');

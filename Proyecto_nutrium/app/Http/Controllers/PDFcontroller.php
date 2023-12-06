@@ -50,6 +50,23 @@ class PDFcontroller extends Controller
             return redirect()->back()->with('error', 'El PDF no está disponible.');
         }
     }
+    public function dictamen()
+    {
+        // Lógica para determinar el archivo PDF correspondiente a la opción seleccionada.
+        $nombrePdf = 'dictamen_perdida_de_capacidad_laboral.pdf';
+        $rutaPdf = public_path("PDF/{$nombrePdf}");
+
+        // Verifica si el archivo PDF existe.
+        if (file_exists($rutaPdf)) {
+            // Retorna el archivo PDF en la respuesta.
+            return response()->download($rutaPdf, $nombrePdf, [
+                'Content-Type' => 'application/pdf',
+            ]);
+        } else {
+            // Si el archivo no existe, puedes redirigir o mostrar un mensaje de error.
+            return redirect()->back()->with('error', 'El PDF no está disponible.');
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *

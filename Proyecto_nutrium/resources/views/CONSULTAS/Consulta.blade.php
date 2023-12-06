@@ -10,6 +10,7 @@
                 <th>Usuario</th>
                 <th>Descripción del Accidente</th>
                 <th>Calificación</th>
+                <th>Dictamen</th>
                 <!-- Agrega más columnas según sea necesario -->
             </tr>
         </thead>
@@ -28,6 +29,7 @@
                     <td>{{ $accidente->nombre_usuario }}</td>
                     <td>{{ $accidente->descripcion_accidente }}</td>
                     <td>{{ $accidente->calificacion_accidente }}</td>
+                    <td><a href="{{ route('dictamen')}}" class="btn btn-success">Descargar</a></td>
                     <!-- Agrega más columnas según sea necesario -->
                 </tr>
             @endforeach
